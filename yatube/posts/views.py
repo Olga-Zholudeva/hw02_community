@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
 LIMIT_POSTS = 10
+
+
 def index(request):
     posts = Post.objects.order_by('-pub_date')[:LIMIT_POSTS]
     context = {
