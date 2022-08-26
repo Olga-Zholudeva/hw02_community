@@ -8,7 +8,7 @@ class Group(models.Model):
     title = models.CharField(
         max_length=200,
         verbose_name='Название группы'
-        )
+    )
     slug = models.SlugField(
         unique=True,
         verbose_name='Слаг')
@@ -27,7 +27,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField(
         auto_now_add=True,
         verbose_name='Дата написания'
-        )
+    )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

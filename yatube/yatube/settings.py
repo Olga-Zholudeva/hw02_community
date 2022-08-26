@@ -110,4 +110,4 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-LIMING_OF_POSTS = 10
+LIMIT_POSTS = 10

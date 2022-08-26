@@ -4,7 +4,7 @@ from .models import Post, Group
 
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:settings.LIMING_OF_POSTS]
+    posts = Post.objects.order_by('-pub_date')[:settings.LIMIT_POSTS]
     context = {
         'posts': posts,
     }
@@ -13,7 +13,9 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:settings.LIMING_OF_POSTS]
+    posts = (
+        Post.objects.filter(group=group).order_by('-pub_date')[:settings.LIMIT_POSTS]
+        )
     context = {
         'group': group,
         'posts': posts,
