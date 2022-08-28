@@ -6,7 +6,7 @@ LIMIT_POSTS = 10
 
 def index(request):
     posts = Post.objects.order_by('-pub_date')[:LIMIT_POSTS]
-    return render(request, 'posts/index.html', {'posts': posts,})
+    return render(request, 'posts/index.html', {'posts': posts, })
 
 
 def group_posts(request, slug):
@@ -14,4 +14,6 @@ def group_posts(request, slug):
     posts = (
         Post.objects.filter(group=group).order_by('-pub_date')[:LIMIT_POSTS]
     )
-    return render(request, 'posts/group_list.html', {'group': group, 'posts': posts,})
+    return render(
+        request, 'posts/group_list.html', {'group': group, 'posts': posts, }
+    )
